@@ -3,3 +3,5 @@ config.ini
 !.gitignore
 vendor
 *.sum
+chainsaw.exe
+chainsaw
