@@ -1,6 +1,7 @@
 package main
 
 import (
+	"chainsaw/baseline"
 	"fmt"
 	"log"
 	"net/url"
@@ -13,7 +14,8 @@ func main() {
 	}
 	u := os.Args[1]
 	fmt.Println("Working...")
-	fmt.Println(parseUrl(u))
+	entry := parseUrl(u)
+	baseline.Start(entry)
 }
 
 func parseUrl(u string) string {
@@ -30,5 +32,5 @@ func parseUrl(u string) string {
 	if res.Port() == "80" {
 		log.Println("Chainsaw suggest you to remove default port 80, because this feature may affect the result.")
 	}
-	return res.Scheme+"://"+res.Host+"/"
+	return res.Scheme+"://"+res.Host
 }
