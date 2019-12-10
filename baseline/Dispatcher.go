@@ -11,4 +11,5 @@ func Start(u string) {
 	directoryListing(&u)
 	druid(&u)
 	laravelDebug(&u)
+	springActuator(&u)
 }
