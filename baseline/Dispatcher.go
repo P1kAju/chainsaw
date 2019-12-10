@@ -10,4 +10,5 @@ func Start(u string) {
 	detectFiles(&u)
 	directoryListing(&u)
 	druid(&u)
+	laravelDebug(&u)
 }

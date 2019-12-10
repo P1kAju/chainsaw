@@ -28,7 +28,7 @@ func detectFiles(u *string) {
 			if len(str) > 500 {
 				str = str[:500]
 			}
-			fmt.Println("[*] Detect "+ v +" file returned 200")
+			fmt.Println("[*] Detected "+ entry)
 			fmt.Println(str)
 		}
 	}
