@@ -2,8 +2,7 @@
 
 ```
 A new web scanner.
-We are not best,
-But we try best.
+Web audit tool.
 ```
 
 ### Usage
