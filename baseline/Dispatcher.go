@@ -3,10 +3,11 @@ package baseline
 /**
 	This module is a baseline check dispatcher.
 	We will add more checklist later.
-	Write at 12:11 AM in HeFei.
+	12:11 AM, December 9, 2019 in HeFei.
  */
 
 func Start(u string) {
-	robots(&u)
+	detectFiles(&u)
+	directoryListing(&u)
 	druid(&u)
 }

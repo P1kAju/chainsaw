@@ -13,9 +13,10 @@ func main() {
 		panic("You must specific a url.")
 	}
 	u := os.Args[1]
-	fmt.Println("Working...")
+	fmt.Println("[+] Working...")
 	entry := parseUrl(u)
 	baseline.Start(entry)
+	fmt.Println("[+] Done.")
 }
 
 func parseUrl(u string) string {
