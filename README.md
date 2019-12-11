@@ -2,10 +2,6 @@
 <p>
   <img src="https://img.shields.io/github/release/nic329/chainsaw.svg" />
   <img src="https://img.shields.io/github/release-date/nic329/chainsaw.svg?color=blue&label=update" />
-  <img src="https://img.shields.io/badge/go report-A+-brightgreen.svg" />
-  <a href="https://nic329.github.io/chainsaw/#/">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
 </p>
 
 > A new web audit tool.
