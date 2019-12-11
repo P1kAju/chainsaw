@@ -5,3 +5,4 @@ vendor
 *.sum
 chainsaw.exe
 chainsaw
+*.txt
