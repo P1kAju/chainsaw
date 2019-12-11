@@ -1,9 +1,7 @@
-config.ini
 .idea
+build
+config.ini
 !.gitignore
 vendor
 *.sum
-chainsaw.exe
-chainsaw
 *.txt
-build
