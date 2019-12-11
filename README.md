@@ -10,7 +10,7 @@ Web audit tool.
 - Get source code `git clone https://github.com/nic329/chainsaw.git`
 
 ### Usage
-- Linux or Mac
+- Linux or Arm or Mac
 ```
 ./chainsaw http://example.com/
 ./chainsaw -f url.txt
