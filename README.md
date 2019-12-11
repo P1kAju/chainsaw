@@ -6,8 +6,8 @@ Web audit tool.
 ```
 
 ### Download
-- Download from [release](releases)
-- git clone git@github.com:nic329/chainsaw.git
+- Download from [release](https://github.com/nic329/chainsaw/releases)
+- Get source code `git clone https://github.com/nic329/chainsaw.git`
 
 ### Usage
 - Linux or Mac
