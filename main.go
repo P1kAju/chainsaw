@@ -1,7 +1,7 @@
 package main
 
 /**
-	Chainsaw, a web scanner.
+	Chainsaw, a web audit tool.
  */
 
 import (
