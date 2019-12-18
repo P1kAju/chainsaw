@@ -9,6 +9,7 @@ package baseline
 func Start(u string) {
 	detectFiles(&u)
 	robots(&u)
+	crossdomain(&u)
 	directoryListing(&u)
 	druid(&u)
 	laravelDebug(&u)
