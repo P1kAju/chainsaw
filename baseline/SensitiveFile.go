@@ -8,6 +8,9 @@ import (
 	"strings"
 )
 
+/**
+	TODO fix the problem when the server always return status code 200 --
+ */
 func detectFiles(u *string) {
 	list := [...]string{"README.md", "admin.php", "admin.asp", "admin.jsp", "admin.aspx", "admin/"}
 	for _,v := range list {
@@ -34,10 +37,6 @@ func detectFiles(u *string) {
 	}
 }
 
-/**
-	TODO detect failed
-	http://singerimage.kugou.com/crossdomain.xml
- */
 func crossdomain(u *string) {
 	entry := *u + "/crossdomain.xml"
 	req, _ := http.NewRequest("GET", entry, nil)
