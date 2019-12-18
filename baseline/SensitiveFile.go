@@ -34,8 +34,12 @@ func detectFiles(u *string) {
 	}
 }
 
+/**
+	TODO detect failed
+	http://singerimage.kugou.com/crossdomain.xml
+ */
 func crossdomain(u *string) {
-	entry := *u + "/crossdomain.txt"
+	entry := *u + "/crossdomain.xml"
 	req, _ := http.NewRequest("GET", entry, nil)
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36")
 	resp, e := (&http.Client{}).Do(req)
@@ -50,6 +54,7 @@ func crossdomain(u *string) {
 		}
 		if strings.Contains(string(body), "cross-domain-policy") && strings.Contains(string(body), "domain=\"*\"") {
 			fmt.Println("[*] Detected " + entry)
+			fmt.Println(string(body))
 		}
 	}
 }
