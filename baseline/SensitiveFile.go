@@ -8,11 +8,8 @@ import (
 	"strings"
 )
 
-/**
-	TODO fix the problem when the server always return status code 200 --
- */
 func detectFiles(u *string) {
-	list := [...]string{"README.md", "admin.php", "admin.asp", "admin.jsp", "admin.aspx", "admin/"}
+	list := [...]string{"admin.php", "admin.asp", "admin.jsp", "admin.aspx", "admin/"}
 	for _,v := range list {
 		entry := *u+ "/" +v
 		req, _ := http.NewRequest("GET", entry, nil)
@@ -23,6 +20,33 @@ func detectFiles(u *string) {
 		}
 		defer resp.Body.Close()
 		if resp.StatusCode == 200 {
+			body, e := ioutil.ReadAll(resp.Body)
+			if e != nil {
+				panic(e)
+			}
+			str := string(body)
+			if len(str) > 500 {
+				str = str[:500]
+			}
+			fmt.Println("[*] Detected "+ entry)
+			fmt.Println(str)
+		}
+	}
+}
+
+func detectGeneralFiles(u *string) {
+	list := [...]string{"README.md", "robots.txt"}
+	for _,v := range list {
+		entry := *u+ "/" +v
+		req, _ := http.NewRequest("GET", entry, nil)
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36")
+		resp, e := (&http.Client{}).Do(req)
+		if e != nil {
+			panic(e)
+		}
+		defer resp.Body.Close()
+		ct := resp.Header.Get("Content-Type")
+		if resp.StatusCode == 200 && !strings.Contains(ct, "text/html"){
 			body, e := ioutil.ReadAll(resp.Body)
 			if e != nil {
 				panic(e)

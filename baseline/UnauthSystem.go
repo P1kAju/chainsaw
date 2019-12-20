@@ -1,6 +1,7 @@
 package baseline
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -46,13 +47,15 @@ func druid(u *string) bool {
 func laravelDebug(u *string) bool {
 	resp, e := http.Post(*u, "", nil)
 	if e != nil {
-		panic(e)
+		fmt.Println(e)
+		return false
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode == 405 {
 		body, e := ioutil.ReadAll(resp.Body)
 		if e != nil {
-			panic(e)
+			fmt.Println(e)
+			return false
 		}
 		if strings.Contains(string(body), "MethodNotAllowedHttpException") {
 			log.Println("[*] Detected Laravel debug mode.", *u)

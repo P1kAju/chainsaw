@@ -7,6 +7,7 @@ package baseline
  */
 
 func Start(u string) {
+	detectGeneralFiles(&u)
 	detectFiles(&u)
 	robots(&u)
 	crossdomain(&u)
