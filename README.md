@@ -1,4 +1,4 @@
-<h1 align="center">Hi chainsaw</h1>
+# chainsaw
 <p>
   <img src="https://img.shields.io/github/release/nic329/chainsaw.svg" />
   <img src="https://img.shields.io/github/release-date/nic329/chainsaw.svg?color=blue&label=update" />
