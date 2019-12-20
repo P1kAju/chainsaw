@@ -19,7 +19,7 @@ func detectFiles(u *string) {
 			panic(e)
 		}
 		defer resp.Body.Close()
-		if resp.StatusCode == 200 {
+		if resp.StatusCode == 200 && strings.Contains(resp.Header.Get("Content-Type"), "text/html") {
 			body, e := ioutil.ReadAll(resp.Body)
 			if e != nil {
 				panic(e)
@@ -46,7 +46,7 @@ func detectGeneralFiles(u *string) {
 		}
 		defer resp.Body.Close()
 		ct := resp.Header.Get("Content-Type")
-		if resp.StatusCode == 200 && !strings.Contains(ct, "text/html"){
+		if resp.StatusCode == 200 && strings.Contains(ct, "text/plain"){
 			body, e := ioutil.ReadAll(resp.Body)
 			if e != nil {
 				panic(e)

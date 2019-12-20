@@ -75,10 +75,25 @@ func main() {
 }
 
 func core(u string) {
-	fmt.Println("[+] Working...")
+	fmt.Println("[+] Working on "+ u +"...")
 	entry := parseUrl(u)
-	baseline.Start(entry)
+	if isAlive(entry) {
+		baseline.Start(entry)
+	} else {
+		log.Println("[*] " + u + " not alive!")
+	}
 	fmt.Println("[+] Done.")
+}
+
+func isAlive(u string) bool {
+	req, _ := http.NewRequest("HEAD", u, nil)
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36")
+	resp, e := (&http.Client{}).Do(req)
+	if e != nil {
+		return false
+	}
+	defer resp.Body.Close()
+	return true
 }
 
 func parseUrl(u string) string {
